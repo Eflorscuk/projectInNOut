@@ -25,20 +25,29 @@ class Model {
         $this->values[$key] = $value;
     }
 
+    public static function getOne($filters = [], $columns = '*') {
+        $class = get_called_class();
+        $result = static::getResultSetFromSelect($filters, $columns);
+        return $result ? new $class($result->fetch_assoc()) : null;
+    }
+
     public static function get($filters = [], $columns = '*') {
         $objects = [];
         $result = static::getResultSetFromSelect($filters, $columns);
         if($result) {
             $class = get_called_class();
-            while ($row = $result->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) {
                 array_push($objects, new $class($row));
             }
         }
         return $objects;
     }
 
+
     public static function getResultSetFromSelect($filters = [], $columns = '*') {
-        $sql = "SELECT ${columns} FROM " . static::$tableName . static::getFilters($filters);
+        $sql = "SELECT ${columns} FROM "
+            . static::$tableName
+            . static::getFilters($filters);
         $result = Database::getResultFromQuery($sql);
         if($result->num_rows === 0) {
             return null;
@@ -50,9 +59,9 @@ class Model {
     private static function getFilters($filters) {
         $sql = '';
         if(count($filters) > 0) {
-            $sql .= "WHERE 1 = 1";
+            $sql .= " WHERE 1 = 1";
             foreach($filters as $column => $value) {
-                $sql .= "AND ${column} = " . static::getFormatedValue($value);
+                $ql .= " AND ${column} = " . static::getFormatedValue($value);
             }
         }
         return $sql;
