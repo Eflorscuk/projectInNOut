@@ -18,7 +18,7 @@
                     <span class="font-weight-light">In </span>
                     <span class="font-weight-bold mx-2">N' </span>
                     <span class="font-weight-light">Out</span>
-                <i class="icofont-runner-alt-1 ml-2"></i>
+                    <i class="icofont-runner-alt-1 ml-2"></i>
             </div>
             <div class="card-body">
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>
