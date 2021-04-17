@@ -5,8 +5,7 @@ body {
     grid-template-areas:
         "header header"
         "sidebar content"
-        "sidebar footer"
-    ;
+        "sidebar footer";
     height: 100vh;
     margin: 0;
     background-color: #DDD;
@@ -14,16 +13,20 @@ body {
 
 header.header {
     grid-area: header;
+    background-color: yellow;
 }
 
 aside.sidebar {
     grid-area: sidebar;
+    background-color: red;
 }
 
 main.content {
     grid-area: content;
+    background-color: blue;
 }
 
 footer.footer {
     grid-area: footer;
+    background-color: black;
 }
