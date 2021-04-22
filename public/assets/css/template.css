@@ -11,6 +11,14 @@ body {
     background-color: #DDD;
 }
 
+body.hide-sidebar {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "header"
+    "content"
+    "footer";
+}
+
 header.header {
     grid-area: header;
     display: flex;
