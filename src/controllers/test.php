@@ -15,3 +15,5 @@ print_r($lunchIntervalString);
 
 echo '<br>';
 
+print_r($wh->getExitTimes());
+
