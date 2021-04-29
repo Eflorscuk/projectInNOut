@@ -61,13 +61,23 @@ class WorkingHours extends Model {
         return sumIntervals($part1, $part2);
     }
 
+    function getLunchInterval() {
+        [, $t2, $t3,] = $this->getTimes();
+        $breakInterval = new DateInterval('PT0S');
+
+        if($t2) $breakInterval = $t2->diff(new DateTime());
+        if($t3) $breakInterval = $t2->diff($t3);
+
+        return $breakInterval;
+    }
+
     private function getTimes() {
         $times = [];
 
         $this->time1 ? array_push($times, getDateFromString($this->time1)) : array_push($times, null);
-        $this->time2 ? array_push($times, getDateFromString($this->time1)) : array_push($times, null);
-        $this->time3 ? array_push($times, getDateFromString($this->time1)) : array_push($times, null);
-        $this->time4 ? array_push($times, getDateFromString($this->time1)) : array_push($times, null);
+        $this->time2 ? array_push($times, getDateFromString($this->time2)) : array_push($times, null);
+        $this->time3 ? array_push($times, getDateFromString($this->time3)) : array_push($times, null);
+        $this->time4 ? array_push($times, getDateFromString($this->time4)) : array_push($times, null);
 
         return $times;
     }
