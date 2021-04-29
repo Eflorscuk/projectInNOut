@@ -71,7 +71,7 @@ class WorkingHours extends Model {
         return $lunchInterval;
     }
 
-    function getExitTimes() {
+    function getExitTime() {
         [$t1,,, $t4] = $this->getTimes();
         $workday = DateInterval::createFromDateString('8 hours');
 
