@@ -66,8 +66,8 @@ class WorkingHours extends Model {
         if($t1) $part1 = $t1->diff(new DateTime());
         if($t2) $part1 = $t1->diff($t2);
 
-        if($t3) $part1 = $t3->diff(new DateTime());
-        if($t4) $part1 = $t3->diff($t4);
+        if($t3) $part2 = $t3->diff(new DateTime());
+        if($t4) $part2 = $t3->diff($t4);
 
         return sumIntervals($part1, $part2);
     }
