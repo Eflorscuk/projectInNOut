@@ -1,3 +1,9 @@
 <main class="content">
-    <h1>OK</h1>
+    <?php
+        echo "Usuários: {$activeUsersCount}";
+        echo '<br>';
+        echo "horas trabalhadas no mês: {$hoursInMonth}";
+        echo '<br>';
+        print_r($absentUsers);
+    ?>
 </main>
